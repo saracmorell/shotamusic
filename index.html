@@ -167,6 +167,8 @@
       z-index: 2;
       max-width: 780px;
       padding: 3rem 0 4rem;
+      text-align: center;
+      margin: 0 auto;
     }
 
     .eyebrow {
@@ -198,7 +200,7 @@
       font-size: clamp(1.45rem, 2.5vw, 2.2rem);
       line-height: 1.35;
       color: var(--gold-soft);
-      margin-bottom: 1rem;
+      margin: 0 auto 1rem;
       max-width: 650px;
     }
 
@@ -207,7 +209,7 @@
       font-size: 1rem;
       line-height: 1.9;
       color: var(--muted);
-      margin-bottom: 2rem;
+      margin: 0 auto 2rem;
     }
 
     .hero-actions {
@@ -215,6 +217,7 @@
       gap: 1rem;
       flex-wrap: wrap;
       margin-top: 2rem;
+      justify-content: center;
     }
 
     .btn {
@@ -255,7 +258,7 @@
     }
 
     .hero-stats {
-      margin-top: 2.75rem;
+      margin: 2.75rem auto 0;
       display: grid;
       grid-template-columns: repeat(3, minmax(120px, 1fr));
       gap: 1rem;
@@ -268,6 +271,7 @@
       padding: 1.25rem;
       backdrop-filter: blur(8px);
       box-shadow: var(--shadow);
+      text-align: center;
     }
 
     .stat-number {
@@ -295,10 +299,16 @@
     .section-head {
       margin-bottom: 2.5rem;
       display: flex;
-      justify-content: space-between;
-      align-items: end;
+      justify-content: center;
+      align-items: center;
       gap: 1rem;
       flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .section-head > div {
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .section-label {
@@ -316,6 +326,7 @@
       line-height: 1.1;
       color: #fff7ea;
       max-width: 760px;
+      margin: 0 auto;
     }
 
     .section-copy {
@@ -323,13 +334,14 @@
       color: var(--muted);
       line-height: 1.9;
       font-size: 1rem;
-      margin-top: 1rem;
+      margin: 1rem auto 0;
     }
 
     .streaming-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
+      justify-items: center;
     }
 
     .stream-card {
@@ -339,11 +351,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       gap: 0.8rem;
       padding: 1.4rem;
       transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
       box-shadow: var(--shadow);
       text-align: center;
+      width: 100%;
     }
 
     .stream-card:hover {
@@ -365,8 +379,14 @@
       max-width: 124px;
       width: auto;
       object-fit: contain;
-      opacity: 0.92;
+      opacity: 1;
       transition: transform 0.28s ease, opacity 0.28s ease;
+      filter: brightness(0) invert(1);
+    }
+
+    .amazon-logo {
+      filter: none;
+      opacity: 1;
     }
 
     .stream-card:hover .stream-logo {
@@ -529,6 +549,7 @@
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .socials a {
@@ -555,8 +576,9 @@
       width: 18px;
       height: 18px;
       object-fit: contain;
-      opacity: 0.92;
+      opacity: 1;
       flex-shrink: 0;
+      filter: brightness(0) invert(1);
     }
 
     footer {
@@ -577,6 +599,37 @@
       font-family: "Cinzel", serif;
       letter-spacing: 0.18em;
       text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+
+    .tavas-footer {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .tavas-footer img {
+      width: 56px;
+      height: auto;
+      margin: 0 auto;
+      opacity: 0.95;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .tavas-footer img:hover {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .tavas-credit {
+      margin-top: 0.85rem;
+      text-align: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .tavas-credit a {
       color: var(--gold-soft);
     }
 
@@ -690,7 +743,8 @@
 
       .footer-inner {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
       }
     }
   </style>
@@ -775,7 +829,7 @@
 
           <a class="stream-card" href="https://music.amazon.com/artists/B0GPPVQN9Y?ref=dm_sh_7YOziK1cZ2aToXsgO2b2H5yoC" target="_blank" rel="noopener">
             <div class="stream-logo-wrap">
-              <img src="amazonmusic.webp" alt="Amazon Music" class="stream-logo" />
+              <img src="amazonmusic.webp" alt="Amazon Music" class="stream-logo amazon-logo" />
             </div>
             <div class="stream-title">Amazon Music</div>
             <div class="stream-sub">Broad reach and easy access for listeners across devices and regions.</div>
@@ -913,6 +967,16 @@
     <div class="wrap footer-inner">
       <div class="footer-name">SHOTA</div>
       <div>© 2026 Shota Music. All rights reserved.</div>
+    </div>
+
+    <div class="tavas-footer">
+      <a href="https://www.tavasworld.com/" target="_blank" rel="noopener">
+        <img src="TWLogoNewTransEMAIL.png" alt="Tavas World" />
+      </a>
+    </div>
+
+    <div class="tavas-credit">
+      Designed by <a href="https://www.tavasworld.com/" target="_blank" rel="noopener">TAVAS WORLD</a>
     </div>
   </footer>
 
