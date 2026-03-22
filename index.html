@@ -19,14 +19,12 @@
     :root {
       --bg: #060606;
       --bg-soft: #0d0d0d;
-      --panel: rgba(255,255,255,0.04);
-      --panel-border: rgba(255,255,255,0.10);
       --gold: #d5b36a;
       --gold-soft: #f0d89d;
       --text: #f5f1e8;
       --muted: #b8b0a2;
       --muted-2: #8f8779;
-      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
       --max: 1320px;
     }
 
@@ -54,10 +52,10 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.05;
+      opacity: 0.04;
       background-image:
-        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
       background-size: 120px 120px;
       z-index: 0;
     }
@@ -86,7 +84,7 @@
       width: 100%;
       z-index: 50;
       backdrop-filter: blur(14px);
-      background: rgba(6,6,6,0.45);
+      background: rgba(6, 6, 6, 0.45);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
@@ -145,7 +143,7 @@
       background:
         linear-gradient(to right, rgba(6,6,6,0.88) 15%, rgba(6,6,6,0.52) 45%, rgba(6,6,6,0.72) 100%),
         url("extraextra.jpg") center center / cover no-repeat;
-      filter: brightness(0.65) contrast(1.08) saturate(0.92);
+      filter: brightness(0.62) contrast(1.08) saturate(0.92);
       transform: scale(1.05);
       animation: heroZoom 16s ease-in-out infinite alternate;
     }
@@ -156,7 +154,7 @@
       inset: 0;
       background:
         radial-gradient(circle at 70% 30%, rgba(213,179,106,0.18), transparent 22%),
-        linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.72));
+        linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.72));
     }
 
     @keyframes heroZoom {
@@ -167,7 +165,7 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 760px;
+      max-width: 780px;
       padding: 3rem 0 4rem;
     }
 
@@ -364,7 +362,7 @@
 
     .stream-logo {
       max-height: 28px;
-      max-width: 120px;
+      max-width: 124px;
       width: auto;
       object-fit: contain;
       opacity: 0.92;
