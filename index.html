@@ -1,871 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SHOTA | Official Artist Site</title>
-  <meta
-    name="description"
-    content="Official artist site for SHOTA. Explore featured releases, streaming platforms, visuals, and the evolving world of SHOTA."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root {
-      --bg: #060606;
-      --bg-soft: #0d0d0d;
-      --panel: rgba(255,255,255,0.04);
-      --panel-border: rgba(255,255,255,0.10);
-      --gold: #d5b36a;
-      --gold-soft: #f0d89d;
-      --text: #f5f1e8;
-      --muted: #b8b0a2;
-      --muted-2: #8f8779;
-      --shadow: 0 20px 60px rgba(0,0,0,0.45);
-      --max: 1320px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background:
-        radial-gradient(circle at top, rgba(213,179,106,0.10), transparent 35%),
-        linear-gradient(to bottom, #060606 0%, #0a0a0a 40%, #060606 100%);
-      color: var(--text);
-      font-family: "Inter", sans-serif;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.05;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 120px 120px;
-      z-index: 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .wrap {
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(6,6,6,0.45);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .nav {
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      font-family: "Cinzel", serif;
-      letter-spacing: 0.22em;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      color: var(--gold-soft);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color 0.25s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold-soft);
-    }
-
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding-top: 110px;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to right, rgba(6,6,6,0.88) 15%, rgba(6,6,6,0.52) 45%, rgba(6,6,6,0.72) 100%),
-        url("/extraextra.jpg?v=3") center center / cover no-repeat;
-      filter: brightness(0.65) contrast(1.08) saturate(0.92);
-      transform: scale(1.05);
-      animation: heroZoom 16s ease-in-out infinite alternate;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 70% 30%, rgba(213,179,106,0.18), transparent 22%),
-        linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.72));
-    }
-
-    @keyframes heroZoom {
-      from { transform: scale(1.05); }
-      to { transform: scale(1.12); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 760px;
-      padding: 3rem 0 4rem;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 1rem;
-      color: var(--gold-soft);
-      font-size: 0.78rem;
-      letter-spacing: 0.34em;
-      text-transform: uppercase;
-      border: 1px solid rgba(213,179,106,0.28);
-      padding: 0.7rem 1rem;
-      background: rgba(0,0,0,0.28);
-    }
-
-    .hero h1 {
-      font-family: "Cinzel", serif;
-      font-weight: 600;
-      line-height: 0.95;
-      font-size: clamp(4rem, 10vw, 8.8rem);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
-      color: #fff8eb;
-      text-shadow: 0 12px 34px rgba(0,0,0,0.45);
-    }
-
-    .hero-subtitle {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(1.45rem, 2.5vw, 2.2rem);
-      line-height: 1.35;
-      color: var(--gold-soft);
-      margin-bottom: 1rem;
-      max-width: 650px;
-    }
-
-    .hero-copy {
-      max-width: 640px;
-      font-size: 1rem;
-      line-height: 1.9;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      padding: 0 1.4rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      font-size: 0.8rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      transition: all 0.28s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #f0d89d, #cda95a);
-      color: #111;
-      border-color: transparent;
-      box-shadow: 0 12px 32px rgba(213,179,106,0.18);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(213,179,106,0.22);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-    }
-
-    .btn-secondary:hover {
-      border-color: rgba(213,179,106,0.4);
-      color: var(--gold-soft);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .hero-stats {
-      margin-top: 2.75rem;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(120px, 1fr));
-      gap: 1rem;
-      max-width: 760px;
-    }
-
-    .stat {
-      background: rgba(8,8,8,0.48);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 1.25rem;
-      backdrop-filter: blur(8px);
-      box-shadow: var(--shadow);
-    }
-
-    .stat-number {
-      display: block;
-      font-family: "Cinzel", serif;
-      font-size: 1.5rem;
-      color: var(--gold-soft);
-      margin-bottom: 0.35rem;
-    }
-
-    .stat-label {
-      color: var(--muted-2);
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      line-height: 1.5;
-    }
-
-    .section {
-      padding: 7rem 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .section-head {
-      margin-bottom: 2.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .section-label {
-      font-size: 0.78rem;
-      color: var(--gold-soft);
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      margin-bottom: 0.7rem;
-    }
-
-    .section-title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      font-weight: 500;
-      line-height: 1.1;
-      color: #fff7ea;
-      max-width: 760px;
-    }
-
-    .section-copy {
-      max-width: 720px;
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: 1rem;
-      margin-top: 1rem;
-    }
-
-    .streaming-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1rem;
-    }
-
-    .stream-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.08);
-      min-height: 150px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0.8rem;
-      padding: 1.4rem;
-      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
-      box-shadow: var(--shadow);
-    }
-
-    .stream-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(213,179,106,0.35);
-      box-shadow: 0 26px 60px rgba(0,0,0,0.38);
-    }
-
-    .stream-icon {
-      font-size: 1.75rem;
-    }
-
-    .stream-title {
-      font-size: 0.85rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-
-    .stream-sub {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .releases-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .release-card {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #0a0a0a;
-      box-shadow: var(--shadow);
-      transition: transform 0.35s ease, border-color 0.35s ease;
-    }
-
-    .release-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(213,179,106,0.35);
-    }
-
-    .release-card img {
-      width: 100%;
-      aspect-ratio: 1 / 1.08;
-      object-fit: cover;
-      filter: brightness(0.72);
-      transition: transform 0.5s ease, filter 0.5s ease;
-    }
-
-    .release-card:hover img {
-      transform: scale(1.06);
-      filter: brightness(0.88);
-    }
-
-    .release-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.92), rgba(0,0,0,0.12) 60%);
-      display: flex;
-      flex-direction: column;
-      justify-content: end;
-      padding: 1.4rem;
-    }
-
-    .release-kicker {
-      color: var(--gold-soft);
-      font-size: 0.7rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      margin-bottom: 0.7rem;
-    }
-
-    .release-title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
-      line-height: 1;
-      color: #fff8ed;
-      margin-bottom: 0.5rem;
-    }
-
-    .release-copy {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.96rem;
-      max-width: 95%;
-    }
-
-    .manifesto {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      background:
-        radial-gradient(circle at top left, rgba(213,179,106,0.12), transparent 28%),
-        linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
-      box-shadow: var(--shadow);
-    }
-
-    .manifesto-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-    }
-
-    .manifesto-copy {
-      padding: 3rem;
-    }
-
-    .manifesto-copy h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      font-weight: 500;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-      color: #fff7ea;
-    }
-
-    .manifesto-copy p {
-      color: var(--muted);
-      line-height: 1.95;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      max-width: 640px;
-    }
-
-    .manifesto-panel {
-      border-left: 1px solid rgba(255,255,255,0.08);
-      padding: 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 1.4rem;
-      background: rgba(0,0,0,0.18);
-    }
-
-    .manifesto-line {
-      padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .manifesto-line:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .manifesto-small {
-      display: block;
-      color: var(--gold-soft);
-      font-size: 0.72rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      margin-bottom: 0.4rem;
-    }
-
-    .manifesto-big {
-      color: var(--text);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.7rem;
-      line-height: 1.2;
-    }
-
-    .tavas-section {
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 4rem 2rem;
-      background:
-        radial-gradient(circle at center, rgba(213,179,106,0.12), transparent 35%),
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-      box-shadow: var(--shadow);
-    }
-
-    .tavas-section h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 500;
-      margin-bottom: 1rem;
-      color: #fff8ed;
-    }
-
-    .tavas-section p {
-      max-width: 760px;
-      margin: 0 auto 2rem;
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: 1rem;
-    }
-
-    .socials {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .socials a {
-      padding: 1rem 1.15rem;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      color: var(--muted);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-size: 0.76rem;
-      transition: all 0.28s ease;
-    }
-
-    .socials a:hover {
-      color: var(--gold-soft);
-      border-color: rgba(213,179,106,0.35);
-      transform: translateY(-3px);
-    }
-
-    footer {
-      padding: 2.5rem 0 4rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      color: var(--muted-2);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-name {
-      font-family: "Cinzel", serif;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold-soft);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(36px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 1100px) {
-      .streaming-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .manifesto-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .manifesto-panel {
-        border-left: none;
-        border-top: 1px solid rgba(255,255,255,0.08);
-      }
-    }
-
-    @media (max-width: 820px) {
-      .releases-grid,
-      .streaming-grid,
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        padding: 0.9rem 0;
-      }
-
-      .nav-links {
-        gap: 0.9rem;
-      }
-
-      .nav-links a {
-        font-size: 0.68rem;
-      }
-
-      .hero h1 {
-        font-size: clamp(3rem, 16vw, 5.5rem);
-      }
-
-      .hero-subtitle {
-        font-size: 1.35rem;
-      }
-
-      .section {
-        padding: 5rem 0;
-      }
-
-      .manifesto-copy,
-      .manifesto-panel,
-      .tavas-section {
-        padding: 2rem 1.25rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHOTA | Official Artist Site</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#050505;
+  --gold:#d6b56c;
+  --text:#f4f1ea;
+  --muted:#9c9485;
+}
+
+* {margin:0;padding:0;box-sizing:border-box;}
+
+body {
+  font-family:"Inter",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.wrap {
+  width:min(1100px,92%);
+  margin:auto;
+}
+
+header {
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  z-index:100;
+}
+
+.nav {
+  display:flex;
+  justify-content:space-between;
+  padding:1rem 0;
+}
+
+.nav a {
+  font-size:0.7rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.hero {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:100px;
+  background:url("extraextra.jpg") center/cover no-repeat;
+}
+
+.hero h1 {
+  font-family:"Cinzel",serif;
+  font-size:clamp(3rem,10vw,7rem);
+  letter-spacing:0.08em;
+}
+
+.hero p {
+  margin-top:1rem;
+  color:var(--muted);
+  max-width:500px;
+}
+
+.section {
+  padding:5rem 0;
+}
+
+.section-title {
+  font-family:"Cinzel",serif;
+  font-size:clamp(1.8rem,4vw,3rem);
+  margin-bottom:2rem;
+}
+
+/* STREAMING */
+
+.streaming {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:1rem;
+}
+
+.stream-card {
+  border:1px solid rgba(255,255,255,0.08);
+  padding:1.5rem;
+  text-align:center;
+  transition:0.3s;
+}
+
+.stream-card:hover {
+  border-color:var(--gold);
+  transform:translateY(-5px);
+}
+
+.stream-logo {
+  width:26px;
+  height:26px;
+  margin:auto;
+  filter:invert(1);
+  opacity:0.8;
+}
+
+.stream-title {
+  margin-top:0.8rem;
+  font-size:0.7rem;
+  letter-spacing:0.2em;
+}
+
+/* RELEASES */
+
+.releases {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.5rem;
+}
+
+.release img {
+  width:100%;
+}
+
+.release-title {
+  margin-top:0.6rem;
+}
+
+/* TAVAS */
+
+.tavas {
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.08);
+  padding:3rem;
+}
+
+.tavas h3 {
+  font-family:"Cinzel",serif;
+  font-size:2rem;
+}
+
+.tavas p {
+  margin:1rem auto;
+  max-width:500px;
+  color:var(--muted);
+}
+
+/* SOCIAL */
+
+.social {
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.social img {
+  width:20px;
+  filter:invert(1);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero {
+  padding:120px 0 40px;
+}
+
+.nav {
+  flex-direction:column;
+  gap:0.5rem;
+}
+
+.hero h1 {
+  font-size:3rem;
+}
+
+.streaming {
+  grid-template-columns:1fr;
+}
+
+.releases {
+  grid-template-columns:1fr;
+}
+
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <nav class="nav">
-      <a href="#top" class="brand">SHOTA</a>
-      <div class="nav-links">
-        <a href="#music">Music</a>
-        <a href="#releases">Releases</a>
-        <a href="#world">The World</a>
-        <a href="#tavas">Tavas</a>
-        <a href="#connect">Connect</a>
-      </div>
-    </nav>
-  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap">
-        <div class="hero-content reveal visible">
-          <span class="eyebrow">Official Artist Site</span>
-          <h1>SHOTA</h1>
-          <p class="hero-subtitle">
-            A global sonic identity, cinematic in scale, fluid in genre, unforgettable in mood.
-          </p>
-          <p class="hero-copy">
-            SHOTA moves across sound the way icons move across eras, effortlessly, fearlessly, and without apology. This is not just a music page. It is an atmosphere, a visual language, and an evolving world built around sound, emotion, beauty, and power.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://open.spotify.com/artist/59GAu9CrjowVAG2sgx2qst?si=bGABgO_MQSK0WJIc8-XDMg" target="_blank" rel="noopener">Listen on Spotify</a>
-            <a class="btn btn-secondary" href="#releases">View Releases</a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-number">Genre-fluid</span>
-              <span class="stat-label">Sound without limits.</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">Cinematic</span>
-              <span class="stat-label">Built for emotion, image, and scale.</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">Global</span>
-              <span class="stat-label">An artist identity designed to travel the world.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="music">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <p class="section-label">Streaming</p>
-            <h2 class="section-title">Every major platform. One unmistakable artist identity.</h2>
-            <p class="section-copy">
-              Meet listeners wherever they are. Keep the journey seamless, premium, and immediate.
-            </p>
-          </div>
-        </div>
-
-        <div class="streaming-grid reveal">
-          <a class="stream-card" href="https://open.spotify.com/artist/59GAu9CrjowVAG2sgx2qst?si=bGABgO_MQSK0WJIc8-XDMg" target="_blank" rel="noopener">
-            <div class="stream-icon">🎵</div>
-            <div class="stream-title">Spotify</div>
-            <div class="stream-sub">Primary streaming destination for discovery and repeat listening.</div>
-          </a>
-
-          <a class="stream-card" href="https://music.apple.com/us/artist/shota85/1879350019" target="_blank" rel="noopener">
-            <div class="stream-icon">🍎</div>
-            <div class="stream-title">Apple Music</div>
-            <div class="stream-sub">Editorial, polished, and positioned for a premium audience.</div>
-          </a>
-
-          <a class="stream-card" href="https://music.amazon.com/artists/B0GPPVQN9Y?ref=dm_sh_7YOziK1cZ2aToXsgO2b2H5yoC" target="_blank" rel="noopener">
-            <div class="stream-icon">📦</div>
-            <div class="stream-title">Amazon Music</div>
-            <div class="stream-sub">Accessible, broad reach, and ready for global listeners.</div>
-          </a>
-
-          <a class="stream-card" href="https://pandora.app.link/0tgoexwtH1b" target="_blank" rel="noopener">
-            <div class="stream-icon">📻</div>
-            <div class="stream-title">Pandora</div>
-            <div class="stream-sub">Lean into mood, curation, and a passive listening audience.</div>
-          </a>
-
-          <a class="stream-card" href="https://youtube.com/channel/UCjBAZUdq6dRXGOWcRLqqLSg?si=av34PicCuvjlY7j5" target="_blank" rel="noopener">
-            <div class="stream-icon">▶</div>
-            <div class="stream-title">YouTube</div>
-            <div class="stream-sub">Visual presence, discovery, and long-tail global reach.</div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="releases">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <p class="section-label">Featured Releases</p>
-            <h2 class="section-title">Three entry points into the world of SHOTA.</h2>
-            <p class="section-copy">
-              Each release should feel like a scene, not just a song. These covers now read like a catalog, not placeholders.
-            </p>
-          </div>
-        </div>
-
-        <div class="releases-grid">
-          <article class="release-card reveal">
-            <img src="/extraextra.jpg?v=3" alt="Extra, Extra by Shota" loading="eager" />
-            <div class="release-overlay">
-              <span class="release-kicker">Featured Release</span>
-              <h3 class="release-title">Extra, Extra</h3>
-              <p class="release-copy">Bold, visual, and immediate. A strong lead image for the artist brand.</p>
-            </div>
-          </article>
-
-          <article class="release-card reveal">
-            <img src="/ordinarylife.jpg?v=3" alt="Ordinary Life by Shota" loading="lazy" />
-            <div class="release-overlay">
-              <span class="release-kicker">Featured Release</span>
-              <h3 class="release-title">Ordinary Life</h3>
-              <p class="release-copy">Elegance in restraint. A quieter visual mood with editorial polish.</p>
-            </div>
-          </article>
-
-          <article class="release-card reveal">
-            <img src="/outlaw.jpg?v=3" alt="Outlaw by Shota" loading="lazy" />
-            <div class="release-overlay">
-              <span class="release-kicker">Featured Release</span>
-              <h3 class="release-title">Outlaw</h3>
-              <p class="release-copy">A stronger edge. A darker lane. A piece that adds myth to the catalog.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="world">
-      <div class="wrap">
-        <div class="manifesto reveal">
-          <div class="manifesto-grid">
-            <div class="manifesto-copy">
-              <p class="section-label">Artist Universe</p>
-              <h3>Not built to blend in. Built to become unforgettable.</h3>
-              <p>
-                SHOTA should not look like a local act, a hobby page, or a generic streaming hub. The brand needs to feel editorial, international, cinematic, and emotionally expensive.
-              </p>
-              <p>
-                That means less clutter, more atmosphere, stronger typography, better spacing, cleaner hierarchy, and visuals that feel iconic. The goal is not just “nice.” The goal is magnetic.
-              </p>
-              <p>
-                This site is now positioned to feel like the digital home of an artist whose presence can scale globally.
-              </p>
-            </div>
-
-            <div class="manifesto-panel">
-              <div class="manifesto-line">
-                <span class="manifesto-small">Identity</span>
-                <div class="manifesto-big">Luxury editorial meets modern music culture.</div>
-              </div>
-              <div class="manifesto-line">
-                <span class="manifesto-small">Mood</span>
-                <div class="manifesto-big">Dark, golden, cinematic, polished, global.</div>
-              </div>
-              <div class="manifesto-line">
-                <span class="manifesto-small">Positioning</span>
-                <div class="manifesto-big">An artist brand designed for world-stage perception.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="tavas">
-      <div class="wrap">
-        <div class="tavas-section reveal">
-          <p class="section-label">Tavas Connection</p>
-          <h3>Shota is also part of the Tavas sonic world.</h3>
-          <p>
-            Original ambient and meditation soundscapes are also being developed for the Tavas wellness experience, expanding SHOTA beyond releases into immersive emotional environments and guided sound.
-          </p>
-          <a class="btn btn-primary" href="https://tavas.app" target="_blank" rel="noopener">Explore Tavas</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="connect">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <p class="section-label">Connect</p>
-            <h2 class="section-title">Follow the artist. Watch the world expand.</h2>
-          </div>
-        </div>
-
-        <div class="socials reveal">
-          <a href="https://www.facebook.com/share/14fn6ZsuVk4/" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://www.tiktok.com/@shaliwell?_r=1&_t=ZP-94symqq5vqB" target="_blank" rel="noopener">TikTok</a>
-          <a href="https://youtube.com/channel/UCjBAZUdq6dRXGOWcRLqqLSg?si=av34PicCuvjlY7j5" target="_blank" rel="noopener">YouTube</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <div class="footer-name">SHOTA</div>
-      <div>© 2026 Shota Music. All rights reserved.</div>
+<header>
+  <div class="wrap nav">
+    <a href="#">SHOTA</a>
+    <div>
+      <a href="#music">Music</a>
+      <a href="#releases">Releases</a>
+      <a href="#connect">Connect</a>
     </div>
-  </footer>
+  </div>
+</header>
 
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
+<section class="hero">
+  <div class="wrap">
+    <h1>SHOTA</h1>
+    <p>Genre-fluid. Cinematic. Global sound.</p>
+  </div>
+</section>
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.14 });
+<section class="section" id="music">
+  <div class="wrap">
+    <h2 class="section-title">Listen</h2>
 
-    reveals.forEach((item) => observer.observe(item));
-  </script>
+    <div class="streaming">
+
+      <a class="stream-card" href="https://open.spotify.com/artist/59GAu9CrjowVAG2sgx2qst" target="_blank">
+        <img src="spotify.svg" class="stream-logo">
+        <div class="stream-title">Spotify</div>
+      </a>
+
+      <a class="stream-card" href="https://music.apple.com/us/artist/shota85/1879350019" target="_blank">
+        <img src="applemusic.svg" class="stream-logo">
+        <div class="stream-title">Apple Music</div>
+      </a>
+
+      <a class="stream-card" href="https://music.amazon.com/artists/B0GPPVQN9Y" target="_blank">
+        <img src="youtubemusic.svg" class="stream-logo">
+        <div class="stream-title">YouTube Music</div>
+      </a>
+
+      <a class="stream-card" href="https://pandora.app.link/0tgoexwtH1b" target="_blank">
+        <img src="pandora.svg" class="stream-logo">
+        <div class="stream-title">Pandora</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="releases">
+  <div class="wrap">
+    <h2 class="section-title">Releases</h2>
+
+    <div class="releases">
+
+      <div class="release">
+        <img src="extraextra.jpg">
+        <div class="release-title">Extra Extra</div>
+      </div>
+
+      <div class="release">
+        <img src="ordinarylife.jpg">
+        <div class="release-title">Ordinary Life</div>
+      </div>
+
+      <div class="release">
+        <img src="outlaw.jpg">
+        <div class="release-title">Outlaw</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap tavas">
+    <h3>TAVAS App</h3>
+    <p>
+      Future integration with the TAVAS App is planned. Additional sound experiences and features will be introduced at a later stage.
+    </p>
+    <a href="https://tavas.app" target="_blank">Visit TAVAS App</a>
+  </div>
+</section>
+
+<section class="section" id="connect">
+  <div class="wrap">
+    <h2 class="section-title">Connect</h2>
+
+    <div class="social">
+
+      <a href="https://www.facebook.com/share/14fn6ZsuVk4/" target="_blank">
+        <img src="facebook.svg">
+      </a>
+
+      <a href="https://www.tiktok.com/@shaliwell" target="_blank">
+        <img src="tiktok.svg">
+      </a>
+
+      <a href="https://youtube.com/channel/UCjBAZUdq6dRXGOWcRLqqLSg" target="_blank">
+        <img src="youtubemusic.svg">
+      </a>
+
+    </div>
+  </div>
+</section>
+
 </body>
 </html>
