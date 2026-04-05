@@ -69,9 +69,12 @@
       position: absolute; inset: 0;
       background: url("extraextra.jpg") center 30% / cover no-repeat;
       filter: brightness(0.72) contrast(1.06) saturate(0.95);
-      transform: scale(1.05);
-    animation: heroZoomOut 16s ease-in-out infinite alternate;
+      animation: heroZoomOut 16s ease-in-out infinite alternate;
       z-index: 0;
+    }
+    @keyframes heroZoomOut {
+      from { transform: scale(1.08); }
+      to { transform: scale(1.0); }
     }
     .hero::before {
       content: ""; position: absolute; inset: 0; z-index: 1;
@@ -83,22 +86,11 @@
       content: ""; position: absolute; inset: 0; z-index: 2;
       background: radial-gradient(circle at 70% 30%, rgba(213,179,106,0.13), transparent 22%);
     }
-  @keyframes heroZoomOut { from { transform: scale(1.08); } to { transform: scale(1.0); } }
     .hero-content { position: relative; z-index: 3; max-width: 780px; padding: 3rem 0 1.5rem; text-align: center; margin: 0 auto; }
     .eyebrow { display: inline-block; margin-bottom: 1rem; color: var(--gold-soft); font-size: 0.78rem; letter-spacing: 0.34em; text-transform: uppercase; border: 1px solid rgba(213,179,106,0.28); padding: 0.7rem 1rem; background: rgba(0,0,0,0.28); }
     .hero h1 { font-family: "Cinzel", serif; font-weight: 600; line-height: 0.95; font-size: clamp(4rem, 10vw, 8.8rem); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.25rem; color: #fff8eb; text-shadow: 0 12px 34px rgba(0,0,0,0.45); }
     .hero-subtitle { font-family: "Cormorant Garamond", serif; font-size: clamp(1.45rem, 2.5vw, 2.2rem); line-height: 1.35; color: var(--gold-soft); margin: 0 auto 1rem; max-width: 650px; }
     .hero-copy { max-width: 640px; font-size: 1rem; line-height: 1.9; color: var(--muted); margin: 0 auto 2rem; }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; justify-content: center; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 1.4rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase; transition: all 0.28s ease; }
-    .btn-primary { background: linear-gradient(135deg, #f0d89d, #cda95a); color: #111; border-color: transparent; box-shadow: 0 12px 32px rgba(213,179,106,0.18); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(213,179,106,0.22); }
-    .btn-secondary { background: rgba(255,255,255,0.04); color: var(--text); }
-    .btn-secondary:hover { border-color: rgba(213,179,106,0.4); color: var(--gold-soft); background: rgba(255,255,255,0.06); }
-    .hero-stats { margin: 2.75rem auto 0; display: grid; grid-template-columns: repeat(3, minmax(120px, 1fr)); gap: 1rem; max-width: 760px; }
-    .stat { background: rgba(8,8,8,0.48); border: 1px solid rgba(255,255,255,0.08); padding: 1.25rem; backdrop-filter: blur(8px); box-shadow: var(--shadow); text-align: center; }
-    .stat-number { display: block; font-family: "Cinzel", serif; font-size: 1.5rem; color: var(--gold-soft); margin-bottom: 0.35rem; }
-    .stat-label { color: var(--muted-2); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.5; }
 
     /* SECTIONS */
     .section { padding: 2rem 0; position: relative; z-index: 1; }
@@ -210,15 +202,13 @@
       .nav { padding: 0.9rem 0; min-height: auto; }
       .nav-links { gap: 0.8rem; width: 100%; justify-content: center; }
       .nav-links a { font-size: 0.66rem; letter-spacing: 0.14em; }
-      .releases-grid, .hero-stats { grid-template-columns: 1fr; }
+      .releases-grid { grid-template-columns: 1fr; }
       .streaming-grid { grid-template-columns: repeat(2, 1fr); }
       .hero { min-height: auto; padding-top: 125px; padding-bottom: 42px; }
       .hero-content { padding: 2rem 0; }
       .hero h1 { font-size: clamp(3rem, 16vw, 5.5rem); }
       .hero-subtitle { font-size: 1.3rem; }
       .hero-copy { font-size: 0.95rem; line-height: 1.75; }
-      .hero-actions { flex-direction: column; }
-      .btn { width: 100%; }
       .section { padding: 2.5rem 0; }
       .section-title { font-size: clamp(1.8rem, 8vw, 2.6rem); }
       .manifesto-copy, .manifesto-panel { padding: 1.75rem 1.25rem; }
@@ -255,7 +245,6 @@
         <h1>SHOTA</h1>
         <p class="hero-subtitle">Global, fluid in genre, unforgettable in mood.</p>
         <p class="hero-copy">SHOTA moves across sound with elegance, range, and presence.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -322,7 +311,6 @@
         <div><p class="section-label">Featured Releases</p></div>
       </div>
       <div class="releases-grid">
-
         <a class="release-card reveal" href="https://open.spotify.com/album/51dz6AcQTKigUNfHTRj55D" target="_blank" rel="noopener">
           <img src="extraextra.jpg" alt="Extra, Extra by Shota" loading="eager" />
           <div class="release-overlay">
@@ -332,7 +320,6 @@
           </div>
           <div class="release-play">&#9654;</div>
         </a>
-
         <a class="release-card reveal" href="https://open.spotify.com/track/60gbQGZ2pTiUXa3uLfFc1q" target="_blank" rel="noopener">
           <img src="outlaw.jpg" alt="Outlaw by Shota" loading="lazy" />
           <div class="release-overlay">
@@ -342,7 +329,6 @@
           </div>
           <div class="release-play">&#9654;</div>
         </a>
-
       </div>
     </div>
   </section>
