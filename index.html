@@ -136,7 +136,7 @@
 
     /* RELEASES */
     .releases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 900px; margin: 0 auto; }
-    .release-card { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: #0a0a0a; box-shadow: var(--shadow); transition: transform 0.35s ease, border-color 0.35s ease; }
+    .release-card { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: #0a0a0a; box-shadow: var(--shadow); transition: transform 0.35s ease, border-color 0.35s ease; display: block; }
     .release-card:hover { transform: translateY(-8px); border-color: rgba(213,179,106,0.35); }
     .release-card img { width: 100%; aspect-ratio: 1 / 1.08; object-fit: contain; filter: brightness(0.72); transition: transform 0.5s ease, filter 0.5s ease; }
     .release-card:hover img { transform: scale(1.06); filter: brightness(0.88); }
@@ -144,6 +144,28 @@
     .release-kicker { color: var(--gold-soft); font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 0.7rem; }
     .release-title { font-family: "Cormorant Garamond", serif; font-size: 2rem; line-height: 1; color: #fff8ed; margin-bottom: 0.5rem; }
     .release-copy { color: var(--muted); line-height: 1.7; font-size: 0.96rem; max-width: 95%; }
+    .release-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.7);
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(213,179,106,0.9);
+      color: #111;
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      padding-left: 4px;
+    }
+    .release-card:hover .release-play {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
 
     /* MANIFESTO */
     .manifesto { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: radial-gradient(circle at top left, rgba(213,179,106,0.12), transparent 28%), linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015)); box-shadow: var(--shadow); }
@@ -246,20 +268,20 @@
     </div>
   </section>
 
-<section class="section" id="listen">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <p class="section-label">Latest Music</p>
-        <h2 class="section-title">Stream Now</h2>
-        <p class="section-copy">All of SHOTA's releases, always up to date.</p>
+  <section class="section" id="listen">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="section-label">Latest Music</p>
+          <h2 class="section-title">Stream Now</h2>
+          <p class="section-copy">All of SHOTA's releases, always up to date.</p>
+        </div>
+      </div>
+      <div class="embed-wrap reveal">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/59GAu9CrjowVAG2sgx2qst?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
-    <div class="embed-wrap reveal">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/59GAu9CrjowVAG2sgx2qst?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-  </div>
-</section>
+  </section>
 
   <section class="section" id="music">
     <div class="wrap">
@@ -281,13 +303,13 @@
           <div class="stream-title">Apple Music</div>
           <div class="stream-sub">Premium listening and artist presentation.</div>
         </a>
-     <a class="stream-card" href="https://music.amazon.com/artists/B0GPPVQN9Y?ref=dm_sh_7YOziK1cZ2aToXsgO2b2H5yoC" target="_blank" rel="noopener">
- <div class="stream-icon-circle" style="width:90px;height:auto;border-radius:8px;background:transparent;border:none;box-shadow:none;">
-  <img src="amazonmusic.jpg" alt="Amazon Music" style="width:90px;height:auto;filter:none;border-radius:6px;" />
-</div>
-  <div class="stream-title">Amazon Music</div>
-  <div class="stream-sub">Broad reach across devices and regions.</div>
-</a>
+        <a class="stream-card" href="https://music.amazon.com/artists/B0GPPVQN9Y?ref=dm_sh_7YOziK1cZ2aToXsgO2b2H5yoC" target="_blank" rel="noopener">
+          <div class="stream-icon-circle" style="width:90px;height:auto;border-radius:8px;background:transparent;border:none;box-shadow:none;">
+            <img src="amazonmusic.jpg" alt="Amazon Music" style="width:90px;height:auto;filter:none;border-radius:6px;" />
+          </div>
+          <div class="stream-title">Amazon Music</div>
+          <div class="stream-sub">Broad reach across devices and regions.</div>
+        </a>
         <a class="stream-card" href="https://pandora.app.link/0tgoexwtH1b" target="_blank" rel="noopener">
           <div class="stream-icon-circle"><img src="pandora.svg" alt="Pandora" /></div>
           <div class="stream-title">Pandora</div>
@@ -302,28 +324,33 @@
     </div>
   </section>
 
-   <section class="section" id="releases">
+  <section class="section" id="releases">
     <div class="wrap">
       <div class="section-head reveal">
         <div><p class="section-label">Featured Releases</p></div>
       </div>
       <div class="releases-grid">
-        <article class="release-card reveal">
+
+        <a class="release-card reveal" href="https://open.spotify.com/album/51dz6AcQTKigUNfHTRj55D" target="_blank" rel="noopener">
           <img src="extraextra.jpg" alt="Extra, Extra by Shota" loading="eager" />
           <div class="release-overlay">
             <span class="release-kicker">Featured Release</span>
             <h3 class="release-title">Extra, Extra</h3>
             <p class="release-copy">Bold, visual, and immediate. A strong lead image for the artist brand.</p>
           </div>
-        </article>
-        <article class="release-card reveal">
+          <div class="release-play">&#9654;</div>
+        </a>
+
+        <a class="release-card reveal" href="https://open.spotify.com/track/60gbQGZ2pTiUXa3uLfFc1q" target="_blank" rel="noopener">
           <img src="outlaw.jpg" alt="Outlaw by Shota" loading="lazy" />
           <div class="release-overlay">
             <span class="release-kicker">Featured Release</span>
             <h3 class="release-title">Outlaw</h3>
             <p class="release-copy">A darker lane with edge, character, and a stronger sense of myth.</p>
           </div>
-        </article>
+          <div class="release-play">&#9654;</div>
+        </a>
+
       </div>
     </div>
   </section>
@@ -385,7 +412,7 @@
 <footer>
   <div class="wrap footer-inner">
     <div class="footer-name">SHOTA</div>
-    <div>© 2026 Shota Music. All rights reserved.</div>
+    <div>&copy; 2026 Shota Music. All rights reserved.</div>
   </div>
   <div class="tavas-footer">
     <a href="https://www.tavasworld.com/" target="_blank" rel="noopener">
